@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+html {
+  font-size: 62.5%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+:root {
+  --color-Red: hsl(0, 78%, 62%);
+  --color-Cyan: hsl(180, 62%, 55%);
+  --color-Orange: hsl(34, 97%, 64%);
+  --color-Blue: hsl(212, 86%, 64%);
+  --color-Very-Dark-Blue: hsl(234, 12%, 34%);
+  --color-Grayish-Blue: hsl(229, 6%, 66%);
+  --color-Very-Light-Gray: hsl(0, 0%, 98%);
+
+  --fontsize-default: 1.5rem;
+}
+main {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-size: var(--fontsize-default);
+  background-color: var(--color-Very-Light-Gray);
+  padding: 2rem;
+  font-weight: 500;
+}
+.header {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-Very-Light-Gray);
+  text-align: center;
+}
+
+.titles {
+  color: var(--color-Grayish-Blue);
+  max-width: 50rem;
+  margin: 0 auto;
+  margin-bottom: 10rem;
+}
+.title-1 {
+  font-weight: 400;
+}
+.title-2 {
+  color: #000;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.cards {
+  text-align: left;
+  display: grid;
+  row-gap: 3rem;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+.card {
+  border-radius: 1rem;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 5px 2rem rgb(0 0 0 / 0.2);
+}
+.card__text {
+  color: var(--color-Grayish-Blue);
+  margin-bottom: 4rem;
+}
+.card-1 {
+  border-top: 3.5px solid var(--color-Cyan);
+}
+.card-2 {
+  border-top: 3.5px solid var(--color-Red);
+}
+.card-3 {
+  border-top: 3.5px solid var(--color-Orange);
+}
+.card-4 {
+  border-top: 3.5px solid var(--color-Blue);
+}
+.card__image {
+  width: 10rem;
+  height: 10rem;
+  align-self: flex-end;
+}
+
+.card :is(.card__image--1, .card__image--2, .card__image--3, .card__image--4) {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card__image--1 {
+  background-image: url("../images/icon-supervisor.svg");
+}
+.card__image--2 {
+  background-image: url("../images/icon-team-builder.svg");
+}
+.card__image--3 {
+  background-image: url("../images/icon-karma.svg");
+}
+.card__image--4 {
+  background-image: url("../images/icon-calculator.svg");
+}
+
+@media (min-width: 800px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    max-width: 110rem;
+    column-gap: 3rem;
+  }
+  .card-1 {
+    grid-column: 1/2;
+    grid-row: 1/-1;
+  }
+  .card-2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .card-3 {
+    grid-column: 2/3;
+    grid-row: 2/-1;
+  }
+  .card-4 {
+    grid-column: 3/-1;
+    grid-row: 1/-1;
+  }
+}
